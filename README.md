@@ -1,1 +1,1 @@
-# GOIT Homework JS Module 7
+# GOIT JS Homework Module 7
