@@ -4,3 +4,6 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryUl = document.querySelector('.gallery')
+
+galleryUl.addEventListener('click', onclick);
+
