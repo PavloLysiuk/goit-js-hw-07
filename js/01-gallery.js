@@ -34,22 +34,25 @@ function createMarkupItem(arr) {
 
 galleryUl.insertAdjacentHTML('beforeend', createMarkupItem(galleryItems));
 
-galleryUl.addEventListener('click', onclick);
+galleryUl.addEventListener('click', onClick);
 
-function onclick(e) {
+let instance;
+
+function onClick(e) {
   e.preventDefault();
   const cardItem = e.target.closest('.gallery__item');
 
   if (cardItem) {
     const original = cardItem.querySelector('.gallery__image').dataset.source;
-    const instance = basicLightbox.create(`<img src="${original}">`);
+    instance = basicLightbox.create(`<img src="${original}">`);
     instance.show();
+    document.addEventListener('keydown', onEscKeyDown);
   }
 }
 
 function onEscKeyDown(e) {
-  console.log(e);
   if (e.code === 'Escape') {
     instance.close();
+    document.removeEventListener('keydown', onEscKeyDown);
   }
 }
