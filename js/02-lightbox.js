@@ -11,6 +11,10 @@ import { galleryItems } from './gallery-items.js';
 
 const galleryUl = document.querySelector('.gallery');
 
+galleryUl.insertAdjacentHTML('beforeend', createMarkupItem(galleryItems));
+
+galleryUl.addEventListener('click', onClick);
+
 function createMarkupItem(arr) {
   return arr.map(({ preview, original, description }) => `
     <li class="gallery__item">
@@ -25,7 +29,3 @@ function createMarkupItem(arr) {
     </li>
     `).join('');
 }
-
-galleryUl.insertAdjacentHTML('beforeend', createMarkupItem(galleryItems));
-
-galleryUl.addEventListener('click', onClick);
